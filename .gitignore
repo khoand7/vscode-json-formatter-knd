@@ -12,6 +12,7 @@ yarn-error.log*
 
 # VSCode settings
 .vscode/
+!.vscode/launch.json
 
 # OS generated files
 .DS_Store
