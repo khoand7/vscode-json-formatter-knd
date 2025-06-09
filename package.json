@@ -1,0 +1,61 @@
+{
+  "name": "vscode-json-formatter-knd",
+  "displayName": "JSON Formatter KND",
+  "description": "A VSCode extension that formats JSON using JSON.stringify() with customizable options.",
+  "version": "0.1.0",
+  "publisher": "khoand7",
+  "engines": {
+    "vscode": "^1.1.37"
+  },
+  "activationEvents": [
+    "onCommand:jsonFormatterKnd.formatJson"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jsonFormatterKnd.formatJson",
+        "title": "Format JSON"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "JSON Formatter KND Configuration",
+      "properties": {
+        "jsonFormatterKnd.indentation": {
+          "type": "string",
+          "enum": [
+            "spaces",
+            "tabs"
+          ],
+          "default": "spaces",
+          "description": "Indentation for formatted JSON. Use '  ' for spaces or '\\t' for tabs."
+        },
+        "jsonFormatterKnd.keyOrder": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Order of JSON keys in the output."
+        },
+        "jsonFormatterKnd.keysInOneLine": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "JSON keys that should be kept in one line."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./tsconfig.json",
+    "watch": "tsc -w -p ./tsconfig.json",
+    "prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "vsce": "^2.15.0",
+    "vscode": "^1.1.37"
+  }
+}
